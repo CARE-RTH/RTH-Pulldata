@@ -52,5 +52,5 @@ function pollUpdate() {
     if(dataSent)
         return;
     //Done with data processing, send the stringified JSON data to the parent window (assuming it is the qualtrics survey)
-    window.parent.postMessage(JSON.stringify(data), "https://hhtuit.qualtrics.com");
+    window.parent.postMessage(data, "https://hhtuit.qualtrics.com");
 }
