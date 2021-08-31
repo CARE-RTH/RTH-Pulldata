@@ -26,11 +26,14 @@ document.addEventListener("load", () => {
 });
 
 function pollUpdate() {
-    
+    console.log("POLLING");
     //If there is no game data present, skip this cycle
     let data = window.localStorage.getItem("gamedata");
     if(data == null)
         return;
+
+    //Make data JSON
+    data = JSON.parse(data);
     
     //Check if there is a data label present
     //If it is then we have to label all our data with the given prefix
