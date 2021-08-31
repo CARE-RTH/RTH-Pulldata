@@ -3,6 +3,8 @@ let dataSent = false;
 
 window.addEventListener("message", m => {
     //We're only interested in data coming from the survey service.
+    console.log(m);
+    
     if(m.origin != "https://httuit.qualtrics.com")
         return;
     
