@@ -5,13 +5,11 @@ window.addEventListener("message", m => {
     //We're only interested in data coming from the survey service.
     console.log(m);
     
-    if(m.origin != "https://httuit.qualtrics.com")
+    if(m.origin != "https://hhtuit.qualtrics.com")
         return;
-    console.log("HERE2");
     //Make sure the data is something sensible and not something random
     //Don't know the inner workings of qualtrics, that's why we check this.
     if(m.data == "DATA RECEIVED") {
-        console.log("HERE3");
         //Mark the data as sent to prevent duplicate messages
         dataSent = true;
         //Clear the interval as well, don't waste time
