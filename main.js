@@ -3,8 +3,6 @@ let dataSent = false;
 
 window.addEventListener("message", m => {
     //We're only interested in data coming from the survey service.
-    console.log(m);
-    
     if(m.origin != "https://hhtuit.qualtrics.com")
         return;
     //Make sure the data is something sensible and not something random
@@ -18,6 +16,8 @@ window.addEventListener("message", m => {
         document.getElementById("spinner").style.display = "none";
         document.getElementById("check").style.display = "block";
         document.getElementById("status").innerHTML = "Data upload complete, you can now continue the survey";
+        //Clear the gamedata
+        window.localStorage.removeItem("gamedata");
     }
 });
 
