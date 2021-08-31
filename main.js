@@ -20,13 +20,12 @@ window.addEventListener("message", m => {
     }
 });
 
-document.addEventListener("load", () => {
+window.addEventListener("load", () => {
     //Check if the game data is present, and send it if it is, every three seconds.
     intervalID = setInterval(pollUpdate, 3000);
 });
 
 function pollUpdate() {
-    console.log("POLLING");
     //If there is no game data present, skip this cycle
     let data = window.localStorage.getItem("gamedata");
     if(data == null)
