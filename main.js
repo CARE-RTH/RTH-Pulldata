@@ -39,7 +39,8 @@ function pollUpdate() {
     //If it is then we have to label all our data with the given prefix
     const urlParams = new URLSearchParams(window.location.search);
     const labelparam = urlParams.get('label');
-    if(labelparam) {
+    if(labelparam != null) {
+        console.log("LABEL DETECTED");
         const unlabeled = data;
         data = {}
         const k = Object.keys(unlabeled);
@@ -47,6 +48,8 @@ function pollUpdate() {
             data[labelparam+k[i]] = unlabeled[k[i]];
         }
     }
+
+    console.log(data);
     
     //Because this function is called asynchronously we can't guarantee that data hasn't already been sent. Check for that.
     if(dataSent)
