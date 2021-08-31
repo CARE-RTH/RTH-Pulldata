@@ -10,6 +10,7 @@ body {
     width: 100vw;
     min-height: 100vh;
     font-family: sans-serif;
+    text-align: center;
 }
 
 @keyframes spinneranim {

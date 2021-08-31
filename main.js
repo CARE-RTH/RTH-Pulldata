@@ -40,7 +40,6 @@ function pollUpdate() {
     const urlParams = new URLSearchParams(window.location.search);
     const labelparam = urlParams.get('label');
     if(labelparam != null) {
-        console.log("LABEL DETECTED");
         const unlabeled = data;
         data = {}
         const k = Object.keys(unlabeled);
