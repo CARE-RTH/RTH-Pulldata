@@ -30,7 +30,7 @@ function hideAccessRequest() {
     document.getElementById("storageaccess").style.display="none";
 }
 
-function requestStorageAccess() {
+function reqSA() {
     document.requestStorageAccess().then(() => {
         hideAccessRequest();
     }).catch((err) => {
