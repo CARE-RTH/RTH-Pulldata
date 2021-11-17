@@ -33,8 +33,8 @@ function hideAccessRequest() {
 function requestStorageAccess() {
     document.requestStorageAccess().then(() => {
         hideAccessRequest();
-    }).catch(() => {
-        
+    }).catch((err) => {
+        console.log(err);
     });
 }
 
