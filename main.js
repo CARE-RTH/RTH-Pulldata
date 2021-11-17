@@ -34,7 +34,7 @@ function reqSA() {
     document.requestStorageAccess().then(() => {
         hideAccessRequest();
     }).catch((err) => {
-        console.log(err);
+        alert("Oops. We couldn't get access to the first party storage. If you clicked the button and nothing happened you should try completing the game first.");
     });
 }
 
