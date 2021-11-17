@@ -17,7 +17,8 @@ window.addEventListener("message", m => {
         document.getElementById("check").style.display = "block";
         document.getElementById("status").innerHTML = "Data upload complete, you can now continue the survey";
         //Clear the gamedata
-        window.localStorage.removeItem("gamedata");
+        Cookies.remove("gamedata");
+        //window.localStorage.removeItem("gamedata");
     }
 });
 
@@ -28,8 +29,9 @@ window.addEventListener("load", () => {
 
 function pollUpdate() {
     //If there is no game data present, skip this cycle
-    let data = window.localStorage.getItem("gamedata");
-    if(data == null)
+    //let data = window.localStorage.getItem("gamedata");
+    let data = Cookies.get("gamedata");
+    if(data == undefined)
         return;
 
     //Make data JSON
