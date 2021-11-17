@@ -22,9 +22,34 @@ window.addEventListener("message", m => {
     }
 });
 
+function showAccessRequest() {
+    document.getElementById("storageaccess").style.display="block";
+}
+
+function hideAccessRequest() {
+    document.getElementById("storageaccess").style.display="none";
+}
+
+function requestStorageAccess() {
+    document.requestStorageAccess().then(() => {
+        hideAccessRequest();
+    }).catch(() => {
+        
+    });
+}
+
 window.addEventListener("load", () => {
     //Check if the game data is present, and send it if it is, every three seconds.
     intervalID = setInterval(pollUpdate, 3000);
+    if(document.hasStorageAccess != undefined) {
+        document.hasStorageAccess().then((res) => {
+            if(!res) {
+                showAccessRequest();
+            }
+        }).catch(() => {
+            showAccessRequest();
+        });
+    }
 });
 
 function pollUpdate() {
