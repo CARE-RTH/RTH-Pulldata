@@ -29,7 +29,7 @@ window.addEventListener("load", () => {
 function pollUpdate() {
     //If there is no game data present, skip this cycle
     let data = window.localStorage.getItem("gamedata");
-    if(data == null)
+    if(data == null || gamedata == "")
         return;
 
     //Make data JSON
