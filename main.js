@@ -17,7 +17,7 @@ window.addEventListener("message", m => {
         document.getElementById("check").style.display = "block";
         document.getElementById("status").innerHTML = "Data upload complete, you can now continue the survey";
         //Clear the gamedata
-        Cookies.remove("gamedata");
+        Cookies.remove("gamedata", {path: "/"});
         //window.localStorage.removeItem("gamedata");
     }
 });
