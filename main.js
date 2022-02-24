@@ -86,6 +86,5 @@ function pollUpdate() {
         window.parent.postMessage(data, "https://uitpsych.qualtrics.com");
     } catch(e) {
         window.parent.postMessage(data, "https://uitpsych.qualtrics.com");
-        window.parent.postMessage(data, "https://hhtuit.qualtrics.com");
     }
 }
