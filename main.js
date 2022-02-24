@@ -83,7 +83,9 @@ function pollUpdate() {
     //send to that instead. If both have somehow failed then we should just fail it.
     try {
         window.parent.postMessage(data, "https://hhtuit.qualtrics.com");
+        window.parent.postMessage(data, "https://uitpsych.qualtrics.com");
     } catch(e) {
         window.parent.postMessage(data, "https://uitpsych.qualtrics.com");
+        window.parent.postMessage(data, "https://hhtuit.qualtrics.com");
     }
 }
