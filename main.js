@@ -3,7 +3,7 @@ let dataSent = false;
 
 window.addEventListener("message", m => {
     //We're only interested in data coming from the survey service.
-    if(m.origin != "https://hhtuit.qualtrics.com" && m.origin != "https://uitpsych.eu.qualtrics.com")
+    if(m.origin != "https://hhtuit.qualtrics.com" && m.origin != "https://uitpsych.qualtrics.com")
         return;
     //Make sure the data is something sensible and not something random
     //Don't know the inner workings of qualtrics, that's why we check this.
@@ -74,8 +74,6 @@ function pollUpdate() {
             data[labelparam+k[i]] = unlabeled[k[i]];
         }
     }
-
-    console.log(data);
     
     //Because this function is called asynchronously we can't guarantee that data hasn't already been sent. Check for that.
     if(dataSent)
@@ -86,6 +84,6 @@ function pollUpdate() {
     try {
         window.parent.postMessage(data, "https://hhtuit.qualtrics.com");
     } catch(e) {
-        window.parent.postMessage(data, "https://uitpsych.eu.qualtrics.com");
+        window.parent.postMessage(data, "https://uitpsych.qualtrics.com");
     }
 }
