@@ -3,7 +3,7 @@ let dataSent = false;
 
 window.addEventListener("message", m => {
     //We're only interested in data coming from the survey service.
-    if(m.origin != "https://hhtuit.qualtrics.com")
+    if(m.origin != "https://hhtuit.qualtrics.com" && m.origin != "https://uitpsych.eu.qualtrics.com")
         return;
     //Make sure the data is something sensible and not something random
     //Don't know the inner workings of qualtrics, that's why we check this.
@@ -81,5 +81,11 @@ function pollUpdate() {
     if(dataSent)
         return;
     //Done with data processing, send the stringified JSON data to the parent window (assuming it is the qualtrics survey)
-    window.parent.postMessage(data, "https://hhtuit.qualtrics.com");
+    //We try to send it to the original qualtrics domain first, if that fails we're probably on the new domain and
+    //send to that instead. If both have somehow failed then we should just fail it.
+    try {
+        window.parent.postMessage(data, "https://hhtuit.qualtrics.com");
+    } catch(e) {
+        window.parent.postMessage(data, "https://uitpsych.eu.qualtrics.com");
+    }
 }
